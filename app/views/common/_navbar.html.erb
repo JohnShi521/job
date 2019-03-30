@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">come in，please </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%= link_to("幽默留言", new_job_path(@jobs)) %>
+                      <%= link_to("幽默大全",  jobs_path(@job), :data => { :confirm => "好文章都在这里" }) %>
+                    <% if !current_user %>
+                                    <li><%= link_to("", new_user_registration_path, :data => { :confirm => "你好，账号是你的名字大写，密码是你的名字小写。注意:码密是阿拉伯数字小写" }) %> </li>
+                                   <li><%= link_to("拜访足迹（左空白有惊喜，我早已知道你是谁）", new_user_session_path) %></li>
+                                  <% else %>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                         Hi!, <%= current_user.email %>
+                                         <b class="caret"></b>
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                          <li> <%= link_to("离开", destroy_user_session_path, method: :delete) %> </li>
+                                      </ul>
+                                   </li>
+                                  <% end %>
+
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

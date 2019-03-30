@@ -1,0 +1,16 @@
+<h1> 随意更改and添油加醋----😁 </h1>
+
+<%= simple_form_for @job do |f| %>
+
+
+<%= f.input :description %>
+<% if @job.image.present? %>
+
+   <%= image_tag(@job.image.thumb.url) %>
+<% end %>
+
+ <div class="group">
+   <%= f.input :image, as: :file %>
+ </div>
+  <%= f.submit "Submit" %>
+<% end %>

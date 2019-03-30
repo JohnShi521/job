@@ -1,0 +1,33 @@
+<table class="table table-boldered">
+<tr>
+<td>标题、选择的动作、建立时间 ...             ⬇️     <td>
+
+
+
+
+</tr>
+
+
+</table>
+<table class="table table-boldered">
+  <% @jobs.each do |job| %>
+
+
+
+  <tr>
+
+    <td>
+      <%= link_to(job.title, job_path(job)) %>
+    </td>
+    <td>
+
+      <%= link_to("删 除",  job_path(job), :data => { :confirm => "淘气鬼，嘿嘿😁，想删掉！学骇客技术是个不错的方法哦❤️" }) %>
+
+      <%= link_to("掉", job_path(job), :method => :delete, :data => { :confirm => "好吧，这个能删除 ❤️" }) %>
+    </td>
+    <td>
+      <%= job.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,12 @@
+<h1> 开心请留言 ：</h1>
+
+<%= simple_form_for @job do |f| %>
+
+<%= f.input :title %>
+<%= f.input :description %>
+
+   <%= f.input :image, as: :file %>
+
+
+  <%= f.submit "Submit" %>
+<% end %>
